@@ -1,0 +1,28 @@
+.contain-information {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  padding: 10px;
+  gap: 20px;
+}
+
+.contain-information__main-form {
+  display: grid;
+  gap: 20px;
+  padding: 10px 30px;
+}
+
+.contain-information__main-form input {
+  border: none;
+  border-radius: 10px;
+  padding: 8px;
+  background-color: whitesmoke;
+}
+
+.contain-information__main-form input:focus{
+  outline: none;
+}
+
+.contain-information__main-form__button {
+  display: flex;
+  gap: 15px;
+}

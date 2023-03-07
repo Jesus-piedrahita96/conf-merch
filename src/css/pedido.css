@@ -1,0 +1,32 @@
+.contain-main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: 15px;
+  gap: 90px;
+}
+
+.contain-pedido {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px #E5E7E9;
+}
+
+.contain-pedido__info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon-delete {
+  width: 32px;
+  height: 32px;
+  background-image: url(../assets/icons/delete.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.icon-delete:hover {
+  transform: rotate(360deg);
+  transition: transform 1.5s;
+}
