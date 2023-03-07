@@ -1,16 +1,20 @@
 import React from 'react'
 import Producto from './Producto';
-import initialState from '../initialState';
 import '../css/productos.css'
+import { useDataCart } from '../context/AppContext';
 
 function Productos() {
-  const productos = initialState.products
+  const datos = useDataCart()
 
   return (
     <>
       <div className="container-productos">
-        {productos.map((data) => (
-          <Producto key={data.id} producto={data}/>
+        {datos.state.products.map((data) => (
+          <Producto
+            key={data.id}
+            producto={data}
+            handleAddToCard={datos.addToCard}
+          />
         ))}
       </div>
     </>

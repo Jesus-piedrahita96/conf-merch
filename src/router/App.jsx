@@ -17,19 +17,24 @@ import '../css/app.css'
 //components
 import Header from "../components/Header";
 
+//context
+import { ProviderContext } from "../context/AppContext";
+
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/checkout/information" element={<Information />} />
-          <Route path="/checkout/payment" element={<Payment />} />
-          <Route path="/checkout/success" element={<Success />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <ProviderContext>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/checkout/information" element={<Information />} />
+            <Route path="/checkout/payment" element={<Payment />} />
+            <Route path="/checkout/success" element={<Success />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </ProviderContext>
       </BrowserRouter>
     </>
   )

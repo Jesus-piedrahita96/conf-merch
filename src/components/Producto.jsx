@@ -1,7 +1,7 @@
 import React from 'react'
 import '../css/productos.css'
 
-function Producto({producto}) {
+function Producto({producto, handleAddToCard}) {
   return (
     <>
       <div className="product-card">
@@ -17,7 +17,8 @@ function Producto({producto}) {
         <p className="product-card__description">
           {producto.description}
         </p>
-        <button>Comprar</button>
+        <button onClick={() => handleAddToCard(producto)}
+        >Comprar</button>
       </div>
     </>
   );

@@ -6,6 +6,16 @@
 }
 
 .contain-pedido {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  height: 60vh;
+}
+
+.contain-pedido::-webkit-scrollbar{
+  display: none;
+}
+
+.contain-pedido__unitario {
   display: flex;
   justify-content: space-between;
   border-bottom: solid 1px #E5E7E9;

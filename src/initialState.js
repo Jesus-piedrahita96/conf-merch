@@ -1,4 +1,5 @@
 export default {
+  cart: [],
   products: [
     {
       'id': '1',
