@@ -1,8 +1,14 @@
 import React from 'react'
+import {useNavigate } from 'react-router-dom';
 import Pedido from '../components/Pedido';
 import '../css/pedido.css'
 
 function Checkout() {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate('/checkout/information')
+  }
   return (
     <>
       <h1>Checkout</h1>
@@ -17,7 +23,10 @@ function Checkout() {
           <h2 className="contain-main__resumen-title">
             Precio Total: $10
           </h2>
-          <button>Continuar pedido</button>
+          <button
+            type='button'
+            onClick={handleClick}
+          >Continuar pedido</button>
         </div>
 
       </div>

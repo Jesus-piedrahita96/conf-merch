@@ -14,10 +14,14 @@ import NotFound from "../pages/NotFound";
 //css
 import '../css/app.css'
 
+//components
+import Header from "../components/Header";
+
 function App() {
   return (
     <>
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/checkout" element={<Checkout />} />

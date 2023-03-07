@@ -1,10 +1,12 @@
 import React from 'react'
-// import ReactDOM from 'react-dom'
+import { useNavigate } from 'react-router-dom'
 import '../css/information.css'
 import Pedido from '../components/Pedido'
+import swal from 'sweetalert'
 
 function Information() {
   const form = React.useRef(null)
+  const navigate = useNavigate()
 
   const handleClick = (event) => {
     event.preventDefault()
@@ -20,7 +22,21 @@ function Information() {
       code: dataForm.get('code'),
       phone: dataForm.get('phone')
     }
+    swal({
+      icon: 'success',
+      text: 'Datos enviados',
+      buttons: false,
+      timer: 1800
+    })
     console.log(datos);
+    setTimeout(() => {
+      navigate('/checkout/payment')
+    }, 2000);
+  }
+
+  const handleBack = (event) => {
+    event.preventDefault()
+    navigate('/checkout')
   }
   return (
     <>
@@ -29,6 +45,7 @@ function Information() {
         <section className="contain-information__main">
           <form
             className='contain-information__main-form'
+            method='post'
             ref={form}
           >
             <input type="text" name="name" placeholder='Nombre' />
@@ -41,7 +58,7 @@ function Information() {
             <input type="number" name="code" placeholder='Codigo postal' />
             <input type="number" name="phone" placeholder='Telefono' />
             <div className="contain-information__main-form__button">
-              <button>Regresar</button>
+              <button onClick={handleBack}>Regresar</button>
               <button
                 type='button'
                 onClick={handleClick}
