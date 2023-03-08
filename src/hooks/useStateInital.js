@@ -2,8 +2,10 @@ import React from 'react'
 import initialState from '../initialState';
 
 function useStateInitial() {
+  //hook
   const [state, setState] = React.useState(initialState)
 
+  //Agregar articulos al cart
   const addToCard = (payload) => {
     setState({
       ...state,
@@ -11,6 +13,23 @@ function useStateInitial() {
     })
   }
 
+  //agregar usuarios al buyer
+  const addToBuyer = (payload) => {
+    setState({
+      ...state,
+      buyer: [...state.buyer, payload]
+    })
+  }
+
+  //agregar a las ordenes
+  const addToOrder = ( payload) => {
+    setState({
+      ...state,
+      order: [...state.order, pfayload]
+    })
+  }
+
+  //Remover articulos del cart
   const removeToCard = (payload) => {
     setState({
       ...state,
@@ -18,7 +37,7 @@ function useStateInitial() {
     })
   }
 
-  return {addToCard, removeToCard, state}
+  return {addToCard, removeToCard, addToBuyer, addToOrder, state}
 }
 
 export { useStateInitial };

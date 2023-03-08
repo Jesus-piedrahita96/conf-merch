@@ -4,9 +4,12 @@ import '../css/pedido.css'
 import swal from 'sweetalert';
 
 function Pedido() {
+  //traigo la informacion general
   const carrito = useDataCart()
+
+  //funcion que se activa con el click de eliminar
   const handleRemove = (object) => {
-    swal({
+    swal({ //pregunta de seguridad
       icon: 'warning',
       text: 'Seguro quiere eliminar el pedido?',
       dangerMode: true,

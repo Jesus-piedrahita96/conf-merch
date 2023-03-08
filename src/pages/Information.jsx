@@ -1,13 +1,29 @@
+//Importaciones ----------------------------------------
+//React
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import '../css/information.css'
-import Pedido from '../components/Pedido'
+
+//Dependencia de alertas
 import swal from 'sweetalert'
 
+//Css
+import '../css/information.css'
+
+//Components
+import Pedido from '../components/Pedido'
+
+//Context
+import { useDataCart } from '../context/AppContext'
+
+//---------------------------------------------------------
+
 function Information() {
+  //instancias de hooks
   const form = React.useRef(null)
   const navigate = useNavigate()
+  const comprador = useDataCart()
 
+  //aceptar datos del formulario
   const handleClick = (event) => {
     event.preventDefault()
     const dataForm = new FormData(form.current)
@@ -22,18 +38,19 @@ function Information() {
       code: dataForm.get('code'),
       phone: dataForm.get('phone')
     }
+    comprador.addToBuyer(datos)
     swal({
       icon: 'success',
       text: 'Datos enviados',
       buttons: false,
       timer: 1800
     })
-    console.log(datos);
     setTimeout(() => {
       navigate('/checkout/payment')
     }, 2000);
   }
 
+  //regresar a checkout
   const handleBack = (event) => {
     event.preventDefault()
     navigate('/checkout')
@@ -48,15 +65,15 @@ function Information() {
             method='post'
             ref={form}
           >
-            <input type="text" name="name" placeholder='Nombre' />
-            <input type="email" name="email" placeholder='Correo' />
-            <input type="text" name="address" placeholder='Direccion' />
-            <input type="text" name='apto' placeholder='Apto' />
-            <input type="text" name="city" placeholder='Ciudad' />
-            <input type="text" name="country" placeholder='Pais' />
+            <input type="text" name="name" placeholder='Nombre' required/>
+            <input type="email" name="email" placeholder='Correo' required />
+            <input type="text" name="address" placeholder='Direccion' required />
+            <input type="text" name='apto' placeholder='Apto' required />
+            <input type="text" name="city" placeholder='Ciudad' required />
+            <input type="text" name="country" placeholder='Pais' required />
             <input type="text" name="state" placeholder='Estado' />
-            <input type="number" name="code" placeholder='Codigo postal' />
-            <input type="number" name="phone" placeholder='Telefono' />
+            <input type="number" name="code" placeholder='Codigo postal' required />
+            <input type="number" name="phone" placeholder='Telefono' required />
             <div className="contain-information__main-form__button">
               <button onClick={handleBack}>Regresar</button>
               <button

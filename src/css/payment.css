@@ -1,0 +1,21 @@
+.payment-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* grid-template-areas:
+    "pedido total"
+    "pedido paypal"; */
+    gap: 15px;
+}
+
+/* .payment-main__pedido {
+  grid-area: pedido;
+}
+
+.payment-main__total {
+  grid-area: total;
+  grid-template-rows: 100px;
+}
+
+.payment-main__button {
+  grid-area: paypal;
+} */

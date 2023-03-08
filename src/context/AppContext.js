@@ -1,14 +1,23 @@
+//Importaciones ----------------------------------
+//React
 import React from 'react'
-import { useStateInitial } from '../hooks/useStateInital';
 
+//Hooks
+import { useStateInitial } from '../hooks/useStateInital';
+import { useSumTotal } from '../hooks/useSumTotal';
+//-------------------------------------------------
 const AppContext = React.createContext()
 
-function ProviderContext({children}) {
+function ProviderContext({ children }) {
+
+  //instancias de hooks
   const initialState = useStateInitial()
 
   return (
     <AppContext.Provider
-     value={initialState}
+      value={
+        initialState
+      }
     >
       {children}
     </AppContext.Provider>
